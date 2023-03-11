@@ -24,6 +24,20 @@
 		"yarn": "Please use pnpm instead of yarn.",
 		"npm": "Please use pnpm instead of npm."
   },
+  "bugs": {
+		"url": "https://github.com/pratamaizzat/workshop-iot-pens/issues"
+	},
+	"keywords": [
+		"workshop",
+		"2023",
+		"PENS",
+		"IOT"
+	],
+	"author": "Ilfat Izzat Pratama (pratama.izzat231298@gmail.com)",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:pratamaizzat/workshop-iot-pens.git"
+	},
   "dependencies": {},
   "packageManager": "pnpm@7.24.3"
 }
