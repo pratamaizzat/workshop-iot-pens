@@ -15,10 +15,14 @@
   "devDependencies": {
     "eslint-config-custom": "workspace:*",
     "prettier": "latest",
+    "tsconfig": "workspace:*",
     "turbo": "latest"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=14.0.0",
+		"pnpm": ">= 7.24.3",
+		"yarn": "Please use pnpm instead of yarn.",
+		"npm": "Please use pnpm instead of npm."
   },
   "dependencies": {},
   "packageManager": "pnpm@7.24.3"
