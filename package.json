@@ -11,34 +11,36 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "eslint-config-custom": "workspace:*",
     "prettier": "latest",
     "tsconfig": "workspace:*",
-    "turbo": "latest"
+    "turbo": "latest",
+    "husky": "^8.0.0"
   },
   "engines": {
     "node": ">=14.0.0",
-		"pnpm": ">= 7.24.3",
-		"yarn": "Please use pnpm instead of yarn.",
-		"npm": "Please use pnpm instead of npm."
+    "pnpm": ">= 7.24.3",
+    "yarn": "Please use pnpm instead of yarn.",
+    "npm": "Please use pnpm instead of npm."
   },
   "bugs": {
-		"url": "https://github.com/pratamaizzat/workshop-iot-pens/issues"
-	},
-	"keywords": [
-		"workshop",
-		"2023",
-		"PENS",
-		"IOT"
-	],
-	"author": "Ilfat Izzat Pratama (pratama.izzat231298@gmail.com)",
-	"repository": {
-		"type": "git",
-		"url": "git@github.com:pratamaizzat/workshop-iot-pens.git"
-	},
+    "url": "https://github.com/pratamaizzat/workshop-iot-pens/issues"
+  },
+  "keywords": [
+    "workshop",
+    "2023",
+    "PENS",
+    "IOT"
+  ],
+  "author": "Ilfat Izzat Pratama (pratama.izzat231298@gmail.com)",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:pratamaizzat/workshop-iot-pens.git"
+  },
   "dependencies": {},
   "packageManager": "pnpm@7.24.3"
 }
