@@ -1,0 +1,12 @@
+{
+	"recommendations": [
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode",
+		"svelte.svelte-vscode",
+		"bradlc.vscode-tailwindcss",
+    "platformio.platformio-ide"
+	],
+	"unwantedRecommendations": [
+		"ms-vscode.cpptools-extension-pack"
+	]
+}
