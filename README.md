@@ -1,6 +1,8 @@
 # Workshop IOT PENS 2023
 
-Thanks to all contributors team member: @pratamaizzat @Rizky2110 @Latifly
+- [pratamaizzat](https://github.com/pratamaizzat) :star2: :sparkles:
+- [pratamaizzat](https://github.com/Rizky2110) :star2: :sparkles:
+- [pratamaizzat](https://github.com/Latifly) :star2: :sparkles:
 
 
 ### MQTT
