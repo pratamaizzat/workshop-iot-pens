@@ -3,8 +3,8 @@
 Web monitoring dan control untuk Workshop IOT PENS 2023. Thanks to all contributing:
 
 - [pratamaizzat](https://github.com/pratamaizzat) :star2: :sparkles:
-- [pratamaizzat](https://github.com/Rizky2110) :star2: :sparkles:
-- [pratamaizzat](https://github.com/Latifly) :star2: :sparkles:
+- [Rizky2110](https://github.com/Rizky2110) :star2: :sparkles:
+- [Latifly](https://github.com/Latifly) :star2: :sparkles:
 
 
 ## Requirement
