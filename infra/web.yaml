@@ -1,0 +1,7 @@
+---
+- name: Web app playbook
+  hosts: all
+  remote_user: ubuntu
+  become: yes
+  roles:
+    - web

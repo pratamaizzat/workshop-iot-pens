@@ -1,0 +1,3 @@
+---
+nginx_version: 1.18.0-0ubuntu1.3
+nginx_custom_directory: /var/www/dino

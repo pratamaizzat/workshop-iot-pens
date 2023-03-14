@@ -16,7 +16,7 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "*.cjs"],
+  "include": ["src", "mqtt.d.ts"],
 		
   "references": [{ "path": "./tsconfig.node.json" }]
 }

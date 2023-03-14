@@ -1,0 +1,10 @@
+server {
+  listen 80;
+  listen [::]:80;
+  server_name iot.dinojantan.com;
+  root {{ nginx_custom_directory }};
+  index index.html;
+  location / {
+    try_files $uri $uri/ =404;
+  }
+}

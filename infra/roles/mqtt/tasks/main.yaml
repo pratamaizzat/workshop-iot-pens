@@ -1,0 +1,28 @@
+---
+- name: Update and upgrade apt
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+    upgrade: yes
+
+- name: Run the equivalent of "apt-get clean" as a separate step
+  apt:
+    clean: yes
+
+- name: Install Mosquitto
+  apt:
+    name: mosquitto
+    update_cache: yes
+    state: latest
+
+- name: Install Mosquitto Client
+  apt:
+    name: mosquitto-clients
+    update_cache: yes
+    state: latest
+
+- name: Start and enabled mosquitto
+  systemd:
+    name: mosquitto
+    state: started
+    enabled: true

@@ -1,0 +1,8 @@
+---
+- name: MQTT server playbook
+  hosts: all
+  remote_user: ubuntu
+  become: yes
+  roles:
+    - nginx
+    - mqtt
