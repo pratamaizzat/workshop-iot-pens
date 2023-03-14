@@ -1,7 +1,5 @@
 #include "mqtt_module.h"
 
-MQTTClient client;
-
 MQTTClient client(2300);
 #define MSG_BUFFER_SIZE_PUB (2300)
 #define VAR_BUFFER_SIZE (50)
@@ -13,13 +11,6 @@ char data_pub[MSG_BUFFER_SIZE_PUB];
 
 void message_received(String &topic, String &payload)
 {
-    JSONVar message = JSON.parse(payload);
-    if (topic == subscriber)
-    {
-        if (message.hasOwnProperty("action"))
-        {
-        }
-    }
 }
 
 class iMQTT
@@ -28,14 +19,14 @@ class iMQTT
 public:
     iMQTT() {}
 
-    void setup(const char *server, Client &connection)
+    void setup_mqtt(const char *server, Client &connection)
     {
         Serial.println("MQTT Setup");
         client.begin(server, connection);
         client.onMessage(message_received);
     }
 
-    void connect(const char *sub1)
+    void connect_mqtt(const char *sub1)
     {
         // generate random id
         String client_id = "BreakerClient-";
@@ -57,7 +48,7 @@ public:
                 break;
             }
         }
-        if (check() == true)
+        if (check_mqtt() == true)
         {
             mqtt_test = "Connected";
             Serial.println("\nMQTT Connected!");
@@ -69,15 +60,15 @@ public:
             Serial.println("\nMQTT Not Connected!");
         }
 
-        subscribe(sub1);
+        subscribe_mqtt(sub1);
     }
 
-    void subscribe(const char *subs)
+    void subscribe_mqtt(const char *subs)
     {
         client.subscribe(subs);
     }
 
-    bool publish(const char *topic, String payload)
+    bool publish_mqtt(const char *topic, String payload)
     {
         memset(data_pub, 0, sizeof(data_pub));
         memset(msg_pub, 0, sizeof(msg_pub));
@@ -89,18 +80,18 @@ public:
         return client.publish(topic, msg_pub, true, 0); // max length message 1420
     }
 
-    void loop(const char *sub1)
+    void loop_mqtt(const char *sub1)
     {
         client.loop();
         // Serial.print("MQTT Connection - ");
         // Serial.println(client.connected());
         if (!client.connected())
         {
-            connect(sub1);
+            connect_mqtt(sub1);
         }
     }
 
-    bool check()
+    bool check_mqtt()
     {
         return client.connected();
     }

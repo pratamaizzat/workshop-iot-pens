@@ -4,6 +4,5 @@
 #include "MQTTClient.h"
 #include "mqtt_module.h"
 #include "MQTT.h"
-#include <Arduino_JSON.h>
 
 #endif
