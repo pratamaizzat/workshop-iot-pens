@@ -1,17 +1,82 @@
 #include "../include/mqtt_module.h"
+#include "../include/hardware_module.h"
 
 static char msg_pub[MSG_BUFFER_SIZE_PUB];
 char data_pub[MSG_BUFFER_SIZE_PUB];
 String mqtt_test = "Not Connected";
 
 MQTTClient client(2300);
-
+HARDWARE hardware;
 void message_received(String &topic, String &payload)
 {
     Serial.print("topic incoming : ");
     Serial.println(topic);
     Serial.print("Payload incoming : ");
     Serial.println(payload);
+
+    if (payload == "00000000")
+    {
+        hardware.led_all_off();
+    }
+    else if (payload == "00000001")
+    {
+        hardware.led_on(hardware.led_1);
+    }
+    else if (payload == "00000011")
+    {
+        hardware.led_on(hardware.led_1);
+        hardware.led_on(hardware.led_2);
+    }
+    else if (payload == "00000111")
+    {
+        hardware.led_on(hardware.led_1);
+        hardware.led_on(hardware.led_2);
+        hardware.led_on(hardware.led_3);
+    }
+    else if (payload == "00001111")
+    {
+
+        hardware.led_on(hardware.led_1);
+        hardware.led_on(hardware.led_2);
+        hardware.led_on(hardware.led_3);
+        hardware.led_on(hardware.led_4);
+    }
+
+    else if (payload == "00011111")
+    {
+
+        hardware.led_on(hardware.led_1);
+        hardware.led_on(hardware.led_2);
+        hardware.led_on(hardware.led_3);
+        hardware.led_on(hardware.led_4);
+        hardware.led_on(hardware.led_5);
+    }
+
+    else if (payload == "00111111")
+    {
+
+        hardware.led_on(hardware.led_1);
+        hardware.led_on(hardware.led_2);
+        hardware.led_on(hardware.led_3);
+        hardware.led_on(hardware.led_4);
+        hardware.led_on(hardware.led_5);
+        hardware.led_on(hardware.led_6);
+    }
+    else if (payload == "01111111")
+    {
+
+        hardware.led_on(hardware.led_1);
+        hardware.led_on(hardware.led_2);
+        hardware.led_on(hardware.led_3);
+        hardware.led_on(hardware.led_4);
+        hardware.led_on(hardware.led_5);
+        hardware.led_on(hardware.led_6);
+        hardware.led_on(hardware.led_7);
+    }
+    else if (payload == "11111111")
+    {
+        hardware.led_all_on();
+    }
 }
 
 void IMQTT::setup_mqtt(const char *server, Client &connection)

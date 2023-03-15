@@ -1,7 +1,7 @@
-#include <Arduino.h>
 #include "../include/mqtt_module.h"
 #include "../include/wifi_module.h"
 #include "../include/tool.h"
+#include "../include/hardware_module.h"
 
 /**
  * @brief  untuk mengatur topic mqtt PUBLISH
@@ -19,6 +19,7 @@ String payload_data_mqtt;
 IMQTT mqtt;
 TOOL tool;
 IWiFi wifi;
+HARDWARE hardware_main;
 
 void setup()
 {
@@ -46,7 +47,7 @@ void setup()
   // MQTT CONNECT
   mqtt.setup_mqtt(server, wifi.client_wifi);
   mqtt.connect_mqtt(subscriber);
-  mqtt.publish_mqtt(publisher, "0000000");
+  mqtt.publish_mqtt(publisher, "00000000");
 }
 
 void loop()
@@ -55,4 +56,22 @@ void loop()
 
   mqtt.loop_mqtt(subscriber);
   delay(30);
+
+  if (digitalRead(hardware_main.button_1) == LOW)
+  {
+    delay(30);
+    mqtt.publish_mqtt(publisher, "10101010");
+  }
+
+  if (digitalRead(hardware_main.button_2) == LOW)
+  {
+    delay(30);
+    mqtt.publish_mqtt(publisher, "010100101");
+  }
+
+  if (digitalRead(hardware_main.button_3) == LOW)
+  {
+    delay(30);
+    mqtt.publish_mqtt(publisher, "1111111");
+  }
 }
