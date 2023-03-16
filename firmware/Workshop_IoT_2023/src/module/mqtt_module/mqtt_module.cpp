@@ -21,7 +21,7 @@ void message_received(String &topic, String &payload)
 
     tools.convert_string_to_char(payload, data);
 
-    for (int i = 0; i < 8; i++)
+    for (int i = 0; i < payload.length(); i++)
     {
         data_int[i] = data[i] - '0';
         hardware.led_on(hardware.led[i], data_int[i]);
@@ -32,7 +32,6 @@ void IMQTT::setup_mqtt(const char *server, Client &connection)
 {
     Serial.println("MQTT Setup");
     client.begin(server, connection);
-    // client.onMessage(message_received);
 }
 
 void IMQTT::connect_mqtt(const char *sub1)

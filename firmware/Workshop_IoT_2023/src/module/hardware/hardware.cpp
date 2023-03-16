@@ -18,10 +18,10 @@ void HARDWARE::setup_hardware()
 
 void HARDWARE::led_on(const int led, int data)
 {
-    if (data == 0)
+    if (data == 1)
     {
-        digitalWrite(led, HIGH);
+        digitalWrite(led, LOW);
     }
     else
-        digitalWrite(led, LOW);
+        digitalWrite(led, HIGH);
 }
