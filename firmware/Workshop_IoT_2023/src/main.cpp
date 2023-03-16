@@ -59,7 +59,6 @@ void loop()
 
   mqtt.loop_mqtt(subscriber);
   delay(30);
-  hardware_main.led_on(2);
 
   // if (digitalRead(hardware_main.button_1) == LOW)
   // {

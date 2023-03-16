@@ -1,12 +1,17 @@
 #include "../include/mqtt_module.h"
 #include "../include/hardware_module.h"
+#include "../include/tool.h"
 
 static char msg_pub[MSG_BUFFER_SIZE_PUB];
 char data_pub[MSG_BUFFER_SIZE_PUB];
 String mqtt_test = "Not Connected";
 
+char data[8];
+int data_int[8];
+
 MQTTClient client(2300);
 HARDWARE hardware;
+TOOL tools;
 void message_received(String &topic, String &payload)
 {
     Serial.print("topic incoming : ");
@@ -14,77 +19,12 @@ void message_received(String &topic, String &payload)
     Serial.print("Payload incoming : ");
     Serial.println(payload);
 
-    if (payload == "00000000")
-    {
-        hardware.led_all_off();
-        Serial.println("kondisi 0");
-    }
-    else if (payload == "00000001")
-    {
-        hardware.led_on(hardware.led_1);
-        Serial.println("kondisi 1");
-    }
-    else if (payload == "00000011")
-    {
-        hardware.led_on(hardware.led_1);
-        hardware.led_on(hardware.led_2);
-        Serial.println("kondisi 2");
-    }
-    else if (payload == "00000111")
-    {
-        hardware.led_on(hardware.led_1);
-        hardware.led_on(hardware.led_2);
-        hardware.led_on(hardware.led_3);
-        Serial.println("kondisi 3");
-    }
-    else if (payload == "00001111")
-    {
+    tools.convert_string_to_char(payload, data);
 
-        hardware.led_on(hardware.led_1);
-        hardware.led_on(hardware.led_2);
-        hardware.led_on(hardware.led_3);
-        hardware.led_on(hardware.led_4);
-        Serial.println("kondisi 4");
-    }
-
-    else if (payload == "00011111")
+    for (int i = 0; i < 8; i++)
     {
-
-        hardware.led_on(hardware.led_1);
-        hardware.led_on(hardware.led_2);
-        hardware.led_on(hardware.led_3);
-        hardware.led_on(hardware.led_4);
-        hardware.led_on(hardware.led_5);
-        Serial.println("kondisi 5");
-    }
-
-    else if (payload == "00111111")
-    {
-
-        hardware.led_on(hardware.led_1);
-        hardware.led_on(hardware.led_2);
-        hardware.led_on(hardware.led_3);
-        hardware.led_on(hardware.led_4);
-        hardware.led_on(hardware.led_5);
-        hardware.led_on(hardware.led_6);
-        Serial.println("kondisi 6");
-    }
-    else if (payload == "01111111")
-    {
-
-        hardware.led_on(hardware.led_1);
-        hardware.led_on(hardware.led_2);
-        hardware.led_on(hardware.led_3);
-        hardware.led_on(hardware.led_4);
-        hardware.led_on(hardware.led_5);
-        hardware.led_on(hardware.led_6);
-        hardware.led_on(hardware.led_7);
-        Serial.println("kondisi 7");
-    }
-    else if (payload == "11111111")
-    {
-        hardware.led_all_on();
-        Serial.println("kondisi 8");
+        data_int[i] = data[i] - '0';
+        hardware.led_on(hardware.led[i], data_int[i]);
     }
 }
 
