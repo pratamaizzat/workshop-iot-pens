@@ -17,21 +17,25 @@ void message_received(String &topic, String &payload)
     if (payload == "00000000")
     {
         hardware.led_all_off();
+        Serial.println("kondisi 0");
     }
     else if (payload == "00000001")
     {
         hardware.led_on(hardware.led_1);
+        Serial.println("kondisi 1");
     }
     else if (payload == "00000011")
     {
         hardware.led_on(hardware.led_1);
         hardware.led_on(hardware.led_2);
+        Serial.println("kondisi 2");
     }
     else if (payload == "00000111")
     {
         hardware.led_on(hardware.led_1);
         hardware.led_on(hardware.led_2);
         hardware.led_on(hardware.led_3);
+        Serial.println("kondisi 3");
     }
     else if (payload == "00001111")
     {
@@ -40,6 +44,7 @@ void message_received(String &topic, String &payload)
         hardware.led_on(hardware.led_2);
         hardware.led_on(hardware.led_3);
         hardware.led_on(hardware.led_4);
+        Serial.println("kondisi 4");
     }
 
     else if (payload == "00011111")
@@ -50,6 +55,7 @@ void message_received(String &topic, String &payload)
         hardware.led_on(hardware.led_3);
         hardware.led_on(hardware.led_4);
         hardware.led_on(hardware.led_5);
+        Serial.println("kondisi 5");
     }
 
     else if (payload == "00111111")
@@ -61,6 +67,7 @@ void message_received(String &topic, String &payload)
         hardware.led_on(hardware.led_4);
         hardware.led_on(hardware.led_5);
         hardware.led_on(hardware.led_6);
+        Serial.println("kondisi 6");
     }
     else if (payload == "01111111")
     {
@@ -72,10 +79,12 @@ void message_received(String &topic, String &payload)
         hardware.led_on(hardware.led_5);
         hardware.led_on(hardware.led_6);
         hardware.led_on(hardware.led_7);
+        Serial.println("kondisi 7");
     }
     else if (payload == "11111111")
     {
         hardware.led_all_on();
+        Serial.println("kondisi 8");
     }
 }
 

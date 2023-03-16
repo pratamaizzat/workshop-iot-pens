@@ -16,8 +16,8 @@ public:
     const int led_8 = 23;
 
     const int button_1 = 13;
-    const int button_2 = 12;
-    const int button_3 = 14;
+    const int button_2 = 14;
+    const int button_3 = 27;
 
     void setup_hardware();
     void led_on(const int led);

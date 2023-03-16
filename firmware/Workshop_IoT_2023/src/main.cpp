@@ -41,12 +41,15 @@ void setup()
   // REWRITE PASS
   String sid_pass = "interadsjoss";
   tool.convert_string_to_char(sid_pass, password);
-
   wifi.connect_wifi(ssid, password);
+
+  // Setup Hardware
+  hardware_main.setup_hardware();
 
   // MQTT CONNECT
   mqtt.setup_mqtt(server, wifi.client_wifi);
   mqtt.connect_mqtt(subscriber);
+  Serial.println("Publish Setup");
   mqtt.publish_mqtt(publisher, "00000000");
 }
 
@@ -56,22 +59,23 @@ void loop()
 
   mqtt.loop_mqtt(subscriber);
   delay(30);
+  hardware_main.led_on(2);
 
-  if (digitalRead(hardware_main.button_1) == LOW)
-  {
-    delay(30);
-    mqtt.publish_mqtt(publisher, "10101010");
-  }
+  // if (digitalRead(hardware_main.button_1) == LOW)
+  // {
+  //   delay(30);
+  //   mqtt.publish_mqtt(publisher, "10101010");
+  // }
 
-  if (digitalRead(hardware_main.button_2) == LOW)
-  {
-    delay(30);
-    mqtt.publish_mqtt(publisher, "010100101");
-  }
+  // if (digitalRead(hardware_main.button_2) == LOW)
+  // {
+  //   delay(30);
+  //   mqtt.publish_mqtt(publisher, "010100101");
+  // }
 
-  if (digitalRead(hardware_main.button_3) == LOW)
-  {
-    delay(30);
-    mqtt.publish_mqtt(publisher, "1111111");
-  }
+  // if (digitalRead(hardware_main.button_3) == LOW)
+  // {
+  //   delay(30);
+  //   mqtt.publish_mqtt(publisher, "1111111");
+  // }
 }
