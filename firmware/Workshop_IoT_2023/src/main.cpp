@@ -4,7 +4,7 @@
 #include "../include/hardware_module.h"
 
 /**
- * @brief  untuk mengatur topic mqtt PUBLISH
+ * @brief  untuk mengatur topic Publish mqtt
  *
  */
 const char *publisher = "/test/device";
@@ -60,21 +60,21 @@ void loop()
   mqtt.loop_mqtt(subscriber);
   delay(30);
 
-  // if (digitalRead(hardware_main.button_1) == LOW)
-  // {
-  //   delay(30);
-  //   mqtt.publish_mqtt(publisher, "10101010");
-  // }
+  if (digitalRead(hardware_main.button_1) == LOW)
+  {
+    delay(30);
+    mqtt.publish_mqtt(publisher, "10101010");
+  }
 
-  // if (digitalRead(hardware_main.button_2) == LOW)
-  // {
-  //   delay(30);
-  //   mqtt.publish_mqtt(publisher, "010100101");
-  // }
+  if (digitalRead(hardware_main.button_2) == LOW)
+  {
+    delay(30);
+    mqtt.publish_mqtt(publisher, "010100101");
+  }
 
-  // if (digitalRead(hardware_main.button_3) == LOW)
-  // {
-  //   delay(30);
-  //   mqtt.publish_mqtt(publisher, "1111111");
-  // }
+  if (digitalRead(hardware_main.button_3) == LOW)
+  {
+    delay(30);
+    mqtt.publish_mqtt(publisher, "1111111");
+  }
 }
